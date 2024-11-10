@@ -1,4 +1,4 @@
-# Passeword Strength Advanced Analyzer
+# Password Strength Advanced Analyzer
 
 The Password Strength Advanced Analyzer is a comprehensive tool designed to assess and enhance the security of your passwords. 
 By evaluating a range of password characteristics such as length, complexity, 
