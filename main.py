@@ -35,7 +35,7 @@ root.geometry("750x450")
 root.resizable(False, False)
 
 # Title Label
-title_label = ttk.Label(root, text="Password Strength Analyzer", font=("Helvetica", 16, "bold"))
+title_label = ttk.Label(root, text="Password Strength Advanced Analyzer by M²", font=("Helvetica", 16, "bold"))
 title_label.pack(pady=10)
 
 # Input Section
