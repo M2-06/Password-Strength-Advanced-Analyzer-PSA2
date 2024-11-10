@@ -4,8 +4,8 @@ import base64
 # Define the function to make the API call
 def check_password_hash(sha256):
     # Your Enzoic API Key and Secret
-    api_key = "bc1277cf27444bea8d873591c4751e84"
-    api_secret = "D&@XnC-@WrVDz^@=JcSF8hb7$XUJP8!V"
+    api_key = ""
+    api_secret = ""
 
     # Combine and encode in Base64
     credentials = f"{api_key}:{api_secret}"
