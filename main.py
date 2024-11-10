@@ -26,7 +26,7 @@ def analyze_password():
     uplow_label.config(text=f"Upper-Lower Mix: {uplow}")
     numbers_label.config(text=f"Numbers: {numbers}")
     symbols_label.config(text=f"Symbols: {symbols}")
-    dbleak_label.config(text=f"Leak Status: {dbleak}")
+    dbleak_label.config(text=f"Common: {dbleak}")
 
 # Main Tkinter window setup
 root = tk.Tk()
