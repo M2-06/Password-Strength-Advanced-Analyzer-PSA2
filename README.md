@@ -14,7 +14,7 @@ unique passwords and avoid common vulnerabilities, ensuring that your sensitive 
 
 2. **Dependencies**: Make sure you have Python 3.6 or higher installed.
 
-3. **API Keys** : Visit Enzoic to sign up and obtain your API keys, then put them in Api.Py
+3. **API Keys** : Visit Enzoic to sign up and obtain your API keys, then put them in Api.py
 
 4. **Running the Analyzer** : Open main.py and execute it : 
 
