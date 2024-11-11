@@ -99,7 +99,8 @@ def evaluate_password_strength(password):
 # The final score  out of ten /10
     
     # Score standarization from (-100 -> 100) to ( 0 -> 10) )
-    score = ( ( score + 100 ) / 200 ) * 10
+    score = (( ( score + 100 ) / 200 ) * 10 )
+    score = int(round(score,0))
     
     print("Your Score is:", score,"/ 10")
 
