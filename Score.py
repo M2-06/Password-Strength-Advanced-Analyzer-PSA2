@@ -7,22 +7,22 @@ def evaluate_password_strength(password):
     passlen = ""
 
     if len(password) <= 4:
-        score -= 100
+        score -= 10
         passlen = "Your password is way too short," + recommandation
     elif len(password) < 6:
-        score -= 20
+        score -= 8
         passlen = "Your password is too short," + recommandation
     elif len(password) < 7:
-        score -= 20
+        score -= 6
         passlen = "Your password is short," + recommandation
     elif len(password) <= 9:
         score += 0
         passlen = "Your password is not short but it would be preferable if you " + recommandation
     elif len(password) >= 12:
-        score += 35
+        score += 25
         passlen = "The length of your password is optimal, hats off"
     elif len(password) >= 10:
-        score += 25
+        score += 20
         passlen = "The length of your password is optimal, hats off"
    
 
@@ -40,10 +40,10 @@ def evaluate_password_strength(password):
          
 
     if identicals == True:
-        score -= 15
+        score -= 5
         consecutive = "Your password contains two or more consecutive identical characters, consider modifying them"
     elif identicals == False:
-        score += 15
+        score += 20
         consecutive = "Your password does not contain any consecutive identical characters, well done"
 
 # Password containing uppers lowers and numbers / symbols :
@@ -56,27 +56,27 @@ def evaluate_password_strength(password):
     
     if any(c.islower() for c in password) and any(c.isupper() for c in password):
         score += 10
-        uplow = "Your password contains upper and lower case letters, good job"
+        uplow = "Your password contains upper and lower case letters, Good job !"
     if any(c.isdigit() for c in password):
-        score += 10
-        numbers = "Your password contains numbers, great work"
+        score += 15
+        numbers = "Your password contains numbers, Great work !"
     if any(not c.isalnum() for c in password):  
         score += 15
-        symbols = "Your password contains symbols, nice one"
+        symbols = "Your password contains symbols, Great job !"
 
          
     
     # Part 2 : not containing uppers, lowers, numbers/symbols:
 
     if not ( any(c.islower() for c in password) and any(c.isupper() for c in password) ):
-        score -= 10
-        uplow = "Your password does not contain any upper and lower case letters, consider adding them"
+        score -= 5
+        uplow = "Your password does not contain upper and lower case letters, consider having the two of them for an increased password strength."
     if not any(c.isdigit() for c in password):
-        score -= 10 
-        numbers = "Your password does not contain any number, consider putting in at least 2 of them"
+        score -= 4
+        numbers = "Your password does not contain any number, consider having at least 2 numbers in it."
     if not any(not c.isalnum() for c in password):  
-        score -= 5 
-        symbols = "Your password does not contain any symbol, they are really important so dont forget them"
+        score -= 3
+        symbols = "Your password does not contain any symbol, they are really important ! Dont forget them."
 
 # Password contained in one of the pwned / common passwords list :
 
@@ -84,21 +84,22 @@ def evaluate_password_strength(password):
       mdplist = [line.strip() for line in file]
    
     match_password = False
-    dbleak = ""
+    dbleak = "Nothing found , Good job !"
 
     for mdp in mdplist:
           if len(mdp) >=4 and ( mdp in password or mdp == password ):
-             score -= 60
+             score -= 15
              match_password = True
-             dbleak = "Password found in a common list of passwords"
+             dbleak = "A part of your password has been found in a common list of passwords, consider changing it !"
              break
         
     if match_password == False:
              score += 15
 
-# The final score
-    
-    print("Your Score is:", score)
+# The final score out of ten /10
+
+    score = score/10
+    print("Your Score is:", score,"/ 10")
 
 # Specific weaknesses
   
@@ -110,6 +111,8 @@ def evaluate_password_strength(password):
     print(dbleak)
 
     return score, passlen, consecutive, uplow, numbers, symbols, dbleak
+
+evaluate_password_strength("test")
 
      
 
