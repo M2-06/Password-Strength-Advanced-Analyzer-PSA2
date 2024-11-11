@@ -112,7 +112,6 @@ def evaluate_password_strength(password):
 
     return score, passlen, consecutive, uplow, numbers, symbols, dbleak
 
-evaluate_password_strength("test")
 
      
 
