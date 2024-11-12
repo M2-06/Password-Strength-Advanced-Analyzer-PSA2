@@ -19,8 +19,8 @@ unique passwords and avoid common vulnerabilities, ensuring that your sensitive 
 4. **Running the Analyzer** : Open main.py and execute it : 
 
 - A GUI window will open where you can enter your password for analysis.
-- The application will evaluate the strength of your password based on multiple criteria and will display feedback on security and recommendations for improvement.
-- If your password appears in any known data breaches, the program will alert you with the exact number of appearances.
+- The application will evaluate the strength of your password based on multiple criteria and will display a score and some recommendations for improvement.
+- If your password appears in any known data breaches of the enzoic api passwords databases, the program will alert you with the exact number of appearances.
 
 5. **Requirements** : 
 
