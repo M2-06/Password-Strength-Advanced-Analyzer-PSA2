@@ -88,7 +88,7 @@ def evaluate_password_strength(password):
 
     for mdp in mdplist:
           if len(mdp) >=4 and ( mdp in password or mdp == password ):
-             score -= 40
+             score -= 50
              match_password = True
              commonality = "A part of your password has been found in a common list of passwords, consider changing it !"
              break
