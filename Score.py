@@ -84,13 +84,13 @@ def evaluate_password_strength(password):
       mdplist = [line.strip() for line in file]
    
     match_password = False
-    dbleak = "Nothing found , Good job !"
+    commonality = "Nothing found , Good job !"
 
     for mdp in mdplist:
           if len(mdp) >=4 and ( mdp in password or mdp == password ):
              score -= 40
              match_password = True
-             dbleak = "A part of your password has been found in a common list of passwords, consider changing it !"
+             commonality = "A part of your password has been found in a common list of passwords, consider changing it !"
              break
         
     if match_password == False:
@@ -101,8 +101,9 @@ def evaluate_password_strength(password):
     # Score standarization from (-100 -> 100) to ( 0 -> 10) rounded )
     score = (( ( score + 100 ) / 200 ) * 10 )
     score = int(round(score,0))
+    score = f"{score}/10"
     
-    print("Your Score is:", score,"/ 10")
+    print("Your Score is:", score)
 
 # Specific weaknesses
   
@@ -111,13 +112,9 @@ def evaluate_password_strength(password):
     print(uplow)
     print(numbers)
     print(symbols)
-    print(dbleak)
+    print(commonality)
 
-    return score, passlen, consecutive, uplow, numbers, symbols, dbleak
-
-
-     
-
+    return score, passlen, consecutive, uplow, numbers, symbols, commonality
 
     
 

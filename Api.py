@@ -2,10 +2,14 @@ import requests
 import base64
 
 # Define the function to make the API call
-def check_password_hash(sha256):
+def check_databases(sha256):
     # Your Enzoic API Key and Secret
     api_key = ""
     api_secret = ""
+
+    # Api not connected :   
+    if api_key == "" or api_key == "":
+        return False
 
     # Combine and encode in Base64
     credentials = f"{api_key}:{api_secret}"
@@ -34,6 +38,3 @@ def check_password_hash(sha256):
             return exposure_count
         else:
             return 0
-        
-
-        
