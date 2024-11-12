@@ -3,20 +3,20 @@ def evaluate_password_strength(password):
 
 # Password length : 
 
-    recommandation = "consider it being at least 10 characters long"
+    recommendation = "consider it being at least 10 characters long"
     passlen = ""
 
     if len(password) <= 3:
         score -= 50
     elif len(password) <= 5:
         score -= 25
-        passlen = "Your password is way too short," + recommandation
+        passlen = "Your password is way too short," + recommendation
     elif len(password) <= 7:
         score -= 10
-        passlen = "Your password is too short," + recommandation
+        passlen = "Your password is too short," + recommendation
     elif len(password) <= 9:
         score += 10
-        passlen = "Your password length is okay but," + recommandation
+        passlen = "Your password length is okay but," + recommendation
     elif len(password) == 10:
         score += 25
         passlen = "The length of your password is optimal, hats off"
