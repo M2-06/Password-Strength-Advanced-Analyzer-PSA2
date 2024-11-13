@@ -3,26 +3,31 @@ def evaluate_password_strength(password):
 
 # Password length : 
 
-    recommendation = "consider it being at least 10 characters long"
+    recommandation = "consider it being at least 10 characters long"
     passlen = ""
 
-    if len(password) <= 3:
+    if len(password) <= 2:
+        score -= 80
+        passlen = "Your password is way too short," + recommandation
+    elif len(password) == 3:
         score -= 50
+        passlen = "Your password is way too short," + recommandation
     elif len(password) <= 5:
         score -= 25
-        passlen = "Your password is way too short," + recommendation
+        passlen = "Your password is way too short," + recommandation
     elif len(password) <= 7:
         score -= 10
-        passlen = "Your password is too short," + recommendation
+        passlen = "Your password is too short," + recommandation
     elif len(password) <= 9:
-        score += 10
-        passlen = "Your password length is okay but," + recommendation
+        score += 0
+        passlen = "Your password is not short but it would be preferable if you " + recommandation
     elif len(password) == 10:
         score += 25
         passlen = "The length of your password is optimal, hats off"
     elif len(password) >= 11:
         score += 35
         passlen = "The length of your password is really optimal, hats off"
+    
    
 
 
@@ -77,17 +82,17 @@ def evaluate_password_strength(password):
         score -= 5
         symbols = "Your password does not contain any symbol, they are really important ! Dont forget them."
 
-# Password contained in one of the pwned / common passwords list :
+# Password contained in one of the common passwords list :
 
     with open("CommonPasswords100k.txt", "r", encoding='utf-8') as file:
       mdplist = [line.strip() for line in file]
    
     match_password = False
-    commonality = "Nothing found , Good job !"
+    commonality = "No part of your password is commonly used. Good job!"
 
     for mdp in mdplist:
           if len(mdp) >=4 and ( mdp in password or mdp == password ):
-             score -= 50
+             score -= 45
              match_password = True
              commonality = "A part of your password has been found in a common list of passwords, consider changing it !"
              break
