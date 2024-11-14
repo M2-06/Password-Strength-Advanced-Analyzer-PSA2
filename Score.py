@@ -56,30 +56,25 @@ def evaluate_password_strength(password):
     numbers = ""
     symbols = ""
     
-    # Part 1 : containing uppers, lowers, numbers/symbols:
+    # Checking for uppers, lowers, numbers/symbols:
     
     if any(c.islower() for c in password) and any(c.isupper() for c in password):
         score += 10
         uplow = "Your password contains upper and lower case letters, Good job !"
+    else : 
+        score -= 15
+        uplow = "Your password does not contain upper and lower case letters, consider having the two of them for an increased password strength."
     if any(c.isdigit() for c in password):
         score += 15
         numbers = "Your password contains numbers, Great work !"
+    else : 
+        score -= 10
+        numbers = "Your password does not contain any number, consider having at least 2 numbers in it."
     if any(not c.isalnum() for c in password):  
         score += 20
         symbols = "Your password contains symbols, Great job !"
-
-         
-    
-    # Part 2 : not containing uppers, lowers, numbers/symbols:
-
-    if not ( any(c.islower() for c in password) and any(c.isupper() for c in password) ):
-        score -= 15
-        uplow = "Your password does not contain upper and lower case letters, consider having the two of them for an increased password strength."
-    if not any(c.isdigit() for c in password):
+    else : 
         score -= 10
-        numbers = "Your password does not contain any number, consider having at least 2 numbers in it."
-    if not any(not c.isalnum() for c in password):  
-        score -= 5
         symbols = "Your password does not contain any symbol, they are really important ! Dont forget them."
 
 # Password contained in one of the common passwords list :
