@@ -10,10 +10,10 @@ def evaluate_password_strength(password):
         score -= 80
         passlen = "Your password is way too short," + recommandation
     elif len(password) == 3:
-        score -= 50
+        score -= 60
         passlen = "Your password is way too short," + recommandation
     elif len(password) <= 5:
-        score -= 25
+        score -= 50
         passlen = "Your password is way too short," + recommandation
     elif len(password) <= 7:
         score -= 10
@@ -74,7 +74,7 @@ def evaluate_password_strength(password):
         score += 20
         symbols = "Your password contains symbols, Great job !"
     else : 
-        score -= 10
+        score -= 20
         symbols = "Your password does not contain any symbol, they are really important ! Dont forget them."
 
 # Password contained in one of the common passwords list :
@@ -114,8 +114,6 @@ def evaluate_password_strength(password):
     print(commonality)
 
     return score, passlen, consecutive, uplow, numbers, symbols, commonality
-
-    
 
    
 
